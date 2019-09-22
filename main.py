@@ -20,12 +20,15 @@ def add_item():
     global items
     global user_input
     if user_input in menu:
-        try:
-            quantity = int(input("Quantity: "))        
-        except ValueError:
-            print("Please enter a valid quantity.")
-        except Exception as e:
-            print("Something went wrong: " + str(e))
+        valid = False
+        while not valid:
+            try:
+                quantity = int(input("Quantity: "))  
+                valid = True       
+            except ValueError:
+                print("Please enter a valid quantity.")
+            except Exception as e:
+                print("Something went wrong: " + str(e))
         for x in range(quantity):
             items.append(user_input)
     else:
@@ -69,9 +72,14 @@ while user_input != "q":
     if user_input != "q":
         add_item()
     else:
+        print("-----------")
+        print("  RECEIPT")
+        print("-----------")
         subtotal = calculate_subtotal()
         tax = subtotal * 0.13
         total = subtotal + tax
+        print("-----------")
         print("Subtotal: " + str('${:,.2f}'.format(subtotal)))
         print("Tax: " + str('${:,.2f}'.format(tax)))
         print("Total: " + str('${:,.2f}'.format(total)))
+        print("-----------")
