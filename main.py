@@ -57,9 +57,15 @@ def calculate_combo(eggs, hash_browns, toast, bacon, sausages):
     item_total += menu["sausage"] * sausages
     return item_total
 
+def format_input(text):
+    text = text.lower().strip()
+    words = text.split()
+    text = " ".join(words)
+    return text
+
 while user_input != "q":
-    user_input = input("Enter item (q to terminate): small breakfast, regular breakfast, big breakfast, " + 
-        "egg, bacon, sausage, hash brown, toast, coffee, tea: ").lower()
+    user_input = format_input(input("Enter item (q to terminate): small breakfast, regular breakfast, big breakfast, " + 
+        "egg, bacon, sausage, hash brown, toast, coffee, tea: "))
     if user_input != "q":
         add_item()
     else:
