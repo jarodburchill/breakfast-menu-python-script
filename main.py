@@ -53,13 +53,13 @@ def calculate_subtotal():
     return subtotal
 
 def calculate_combo(eggs, hash_browns, toast, bacon, sausages):
-    item_total = 0.00
-    item_total += menu["egg"] * eggs
-    item_total += menu["hash brown"] * hash_browns
-    item_total += menu["toast"] * toast
-    item_total += menu["bacon"] * bacon
-    item_total += menu["sausage"] * sausages
-    return item_total
+    combo_total = 0.00
+    combo_total += menu["egg"] * eggs
+    combo_total += menu["hash brown"] * hash_browns
+    combo_total += menu["toast"] * toast
+    combo_total += menu["bacon"] * bacon
+    combo_total += menu["sausage"] * sausages
+    return combo_total
 
 def format_input(text):
     text = text.lower().strip()
