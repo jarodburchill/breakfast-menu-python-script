@@ -48,7 +48,7 @@ def calculate_subtotal():
             item_total = calculate_combo(3, 2, 4, 6, 3)
         else:
             item_total = menu[item]
-        print(item + ": " + str('${:,.2f}'.format(item_total)))
+        print(item + ": " + '${:,.2f}'.format(item_total))
         subtotal += item_total
     return subtotal
 
@@ -80,7 +80,7 @@ while user_input != "q":
         tax = subtotal * 0.13
         total = subtotal + tax
         print("-----------")
-        print("Subtotal: " + str('${:,.2f}'.format(subtotal)))
-        print("Tax: " + str('${:,.2f}'.format(tax)))
-        print("Total: " + str('${:,.2f}'.format(total)))
+        print("Subtotal: " + '${:,.2f}'.format(subtotal))
+        print("Tax: " + '${:,.2f}'.format(tax))
+        print("Total: " + '${:,.2f}'.format(total))
         print("-----------")
