@@ -35,6 +35,7 @@ def add_item():
         print("Please enter a valid item.")
 
 def calculate_subtotal():
+    global menu
     global items
     subtotal = 0.00
     for item in items:
