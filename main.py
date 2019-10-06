@@ -15,6 +15,7 @@ items = []
 
 user_input = ""
 
+
 def add_item():
     global menu
     global items
@@ -23,8 +24,11 @@ def add_item():
         valid = False
         while not valid:
             try:
-                quantity = int(input("Quantity: "))  
-                valid = True       
+                quantity = int(input("Quantity: "))
+                if quantity > 0:
+                    valid = True
+                else:
+                    raise ValueError
             except ValueError:
                 print("Please enter a valid quantity.")
             except Exception as e:
@@ -33,6 +37,7 @@ def add_item():
             items.append(user_input)
     else:
         print("Please enter a valid item.")
+
 
 def calculate_subtotal():
     global menu
@@ -52,6 +57,7 @@ def calculate_subtotal():
         subtotal += item_total
     return subtotal
 
+
 def calculate_combo(eggs, hash_browns, toast, bacon, sausages):
     combo_total = 0.00
     combo_total += menu["egg"] * eggs
@@ -61,15 +67,17 @@ def calculate_combo(eggs, hash_browns, toast, bacon, sausages):
     combo_total += menu["sausage"] * sausages
     return combo_total
 
+
 def format_input(text):
     text = text.lower().strip()
     words = text.split()
     text = " ".join(words)
     return text
 
+
 while user_input != "q":
-    user_input = format_input(input("Enter item (q to terminate): small breakfast, regular breakfast, big breakfast, " + 
-        "egg, bacon, sausage, hash brown, toast, coffee, tea: "))
+    user_input = format_input(input("Enter item (q to terminate): small breakfast, regular breakfast, big breakfast, " +
+                                    "egg, bacon, sausage, hash brown, toast, coffee, tea: "))
     if user_input != "q":
         add_item()
     else:
